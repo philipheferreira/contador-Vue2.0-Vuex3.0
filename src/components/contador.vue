@@ -2,8 +2,10 @@
 <template>
   <div>
     <p>Contador: {{ contador }}</p>
+    <button @click="decremento10">Decremento + 10</button>
     <button @click="decremento">Decrementar</button>
     <button @click="incremento">Incrementar</button>
+    <button @click="incremento10">Incremento + 10</button>
   </div>
 </template>
 
@@ -19,7 +21,9 @@ export default {
   methods: { 
    ...mapActions([
       'incremento',
-      'decremento'
+      'decremento',
+      'incremento10',
+      'decremento10'
    ])
   }
 }
