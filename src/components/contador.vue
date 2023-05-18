@@ -1,25 +1,26 @@
 
 <template>
   <div>
-      <h1>Contador: {{ contador }}</h1>
-      <button @click="decremento">decremento</button>
-      <button @click="incremento">Incremento</button>
+    <p>Contador: {{ contador }}</p>
+    <button @click="decremento">Decrementar</button>
+    <button @click="incremento">Incrementar</button>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'contadorPag',
-  data: () => ({
-      contador: 0
-  }),
-  methods: {
-    decremento: function() {
-        this.contador--
-    }, 
-    incremento: function() {
-        this.contador++
-    }
+  computed: {
+      ...mapGetters([
+          'contador'
+      ])
+  }, 
+  methods: { 
+   ...mapActions([
+      'incremento',
+      'decremento'
+   ])
   }
 }
 </script>
